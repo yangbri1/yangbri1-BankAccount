@@ -16,14 +16,15 @@ public class BankService {
      * anything in this constructor.
      */
     public BankService(){
-        this.balance = 0;
+        this.balance = 0; // assign default value 0 -- pointing to instance variable 'balance' above
     }
     /**
      * TODO: implement functionality to increase the user's balance by amount.
      * @param amount the amount to be deposited.
      */
     public void deposit(double amount){
-
+        // recursively add 'amount' to current existing 'balance'
+        this.balance += amount; 
     }
 
     /**
@@ -32,7 +33,13 @@ public class BankService {
      * @param amount the amount to be withdrawn.
      */
     public void withdraw(double amount){
-
+        // if 'balance' is greater than or equal to wanted withdraw 'amount' -- this bank does NOT allow lending I guess
+        if(balance >= amount){
+            // subtract 'amount' from value of instance variable 'balance'
+            this.balance -= amount;
+        }
+        // otherwise if wanted 'amount' exceeds 'balance' -- withdraw DN occur
+        
     }
 
     /**
@@ -40,6 +47,8 @@ public class BankService {
      * @return the user's balance.
      */
     public double getBalance(){
-        return 0;
+        // type-casting instance variable 'balance' to double as getBalance() method returns a double
+        // double balanceDouble = balance;
+        return balance;
     }
 }
